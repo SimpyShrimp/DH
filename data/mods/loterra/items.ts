@@ -1,17 +1,17 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	swellowite: {
-	name: "Swellowite",
-	spritenum: 586,
-	megaStone: "Swellow-Mega",
-	megaEvolves: "Swellow",
-	itemUser: ["Swellow"],
-	onTakeItem(item, source) {
-		if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-		return true;
+		name: "Swellowite",
+		spritenum: 586,
+		megaStone: "Swellow-Mega",
+		megaEvolves: "Swellow",
+		itemUser: ["Swellow"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
-	num: -1001,
-	gen: 8,
-	desc: "If held by a Swellow, this item allows it to Mega Evolve in battle.",
+		num: -1001,
+		gen: 8,
+		desc: "If held by a Swellow, this item allows it to Mega Evolve in battle.",
 	},
 	milotite: {
 		name: "Milotite",
@@ -83,4 +83,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Sirfetch\u2019d, this item allows it to Mega Evolve in battle.",
 	},
-},
+};
