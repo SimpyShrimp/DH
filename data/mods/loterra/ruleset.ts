@@ -1,5 +1,5 @@
 export const Formats: {[k: string]: FormatData} = {
-onSwitchIn(pokemon) {
+		onSwitchIn(pokemon) {
 			if (pokemon.illusion) {
 				if (pokemon.illusion.species.forme.startsWith('Mega') || pokemon.illusion.species.forme.startsWith('Ultra')) {
 					this.add('-start', pokemon, 'typechange', pokemon.illusion.getTypes(true).join('/'), '[silent]');
@@ -36,46 +36,17 @@ onSwitchIn(pokemon) {
 			}
 		},
 	},
-		standardlot: {
+	standardloterra: {
 		effectType: 'ValidatorRule',
 		name: 'Standard Loterra',
-		desc: 'Standard Loterra's banlist.',
+		desc: 'The universal banlist used by most standard Megas for All formats.',
 		banlist: [
 			'Alakazite', 'Arceus', 'Blastoisinite', 'Blazikenite', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Dracovish',
 			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
 			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Tornadus-Therian','Cinderace','Deoxys-Dpeed'
+			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
 			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 		],
-	},
-sametypeclause: {
-		effectType: 'ValidatorRule',
-		name: 'Same Type Clause',
-		desc: "Forces all Pok&eacute;mon on a team to share a type with each other",
-		onBegin() {
-			this.add('rule', 'Same Type Clause: Pokémon in a team must share a type');
-		},
-	megasonlymod: {
-		effectType: 'ValidatorRule',
-		name: 'Megas Only Mod',
-		desc: "Forces all Pok&eacute;mon on a team to hold a valid Mega Stone. But you still only get to Mega Evolve one!",
-		onBegin() {
-			this.add('rule', 'Megas Only Mod: Forces all Pok&eacute;mon on a team to hold a valid Mega Stone, but you still can only Mega Evolve one!');
-		},
-		onValidateTeam(team) {
-			let problems: string[] = [];
-			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
-				const item = this.dex.getItem(set.item);
-				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-					continue;
-				} else {
-					problems.push(species + " is not holding a Mega Stone it can use to Mega Evolve.");
-				}
-				
-				return problems;
-			}
-		},
 	},
 };
