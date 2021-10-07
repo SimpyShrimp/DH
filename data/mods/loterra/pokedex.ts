@@ -16129,8 +16129,8 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 	},
 	sirfetchdmega: {
 		num: 865,
-		name: "Sirfetchd-Mega",
-		baseSpecies: "Sirfetchd",
+		name: "Sirfetch\u2019d-Mega",
+		baseSpecies: "Sirfetch\u2019d",
 		forme: "Mega",
 		types: ["Fighting"],
 		baseStats: {hp: 62, atk: 155, def: 130, spa: 68, spd: 127, spe: 65},
