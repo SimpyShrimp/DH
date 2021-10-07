@@ -15899,11 +15899,11 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 	pangodillo: {
 		num: 1001,
 		name: "Pangodillo",
-      		types: ["Normal"],
-      		baseStats: {hp: 70, atk: 40, def: 70, spa: 30, spd: 70, spe: 30},
+     	types: ["Normal"],
+     	baseStats: {hp: 70, atk: 40, def: 70, spa: 30, spd: 70, spe: 30},
 		abilities: {0: "Bulletproof", H: "Scale Off"},
 		evo: ["Pangolem"],
-      		weightkg: 3,
+     	weightkg: 3,
 	},
 	pangolem: {
 		num: 1002,
@@ -15914,25 +15914,25 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 		prevo: ["Pangodillo"],
 	  	weightkg: 32.7,
 	},
-    	raista: {
-      		num: 1003,
-      		name: "Raista",
-      		types: ["Electric", "Grass"],
-      		baseStats: {hp: 45, atk: 80, def: 50, spa: 75, spd: 60, spe: 120},
-      		abilities: {0: "Static", 1: "Lightning Rod", H: "Electric Surge"},
-		prevo: ["Pikachu"]
-      		weightkg: 27.2,
+   raista: {
+      num: 1003,
+     	name: "Raista",
+     	types: ["Electric", "Grass"],
+      baseStats: {hp: 45, atk: 80, def: 50, spa: 75, spd: 60, spe: 120},
+     	abilities: {0: "Static", 1: "Lightning Rod", H: "Electric Surge"},
+		prevo: ["Pikachu"],
+     	weightkg: 27.2,
   },
-	coppereon: {
-      		num: 1005,
-      		name: "Coppereon",
-      		type: ["Steel"],
-      		baseStats: {hp: 80, atk: 110, def: 130, spa: 55, spd: 90, spe:60},
-      		abilities: {0: "Mirror Armor", H: "Heatproof"},
-      		weightkg: 33.6,
+  coppereon: {
+     	num: 1005,
+     	name: "Coppereon",
+     	type: ["Steel"],
+     	baseStats: {hp: 80, atk: 110, def: 130, spa: 55, spd: 90, spe:60},
+     	abilities: {0: "Mirror Armor", H: "Heatproof"},
+      weightkg: 33.6,
 		prevo:["Eevee"],
   },
-	dragruit: {
+  dragruit: {
 		num: 1013,
 		name: "Dragruit",
 		type: ["Dragon","Grass"],
@@ -15940,7 +15940,7 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 110, def:100, spa:60, spd: 80, spe: 70},
 		weightkg: 207,
   },
-		reptice: {
+  reptice: {
 		num: 1014,
 		name: "Reptice",
 		type: ["Grass","Fighting"],
@@ -15948,7 +15948,7 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 65, def:75, spa:67, spd: 121, spe: 60},
 		weightkg: 44,
   },
-	helhost: {
+  helhost: {
 		num: 1015,
 		name: "Helhost",
 		type: ["Ghost","Steel"],
@@ -15957,46 +15957,55 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 		weightkg: 0.9,
 		evo:["Arhost"],
   },
-	arhost: {
-      		num: 1016,
-      		name: "Arhost",
-      		type: ["Ghost", "Steel"],
-      		baseStats: {hp: 55, atk: 70, def: 110, spa: 70, spd: 120, spe: 50},
-      		abilities: {0: "Battle Armor", H: "Bulletproof"},
-      		weightkg: 3.9,
+  arhost: {
+      num: 1016,
+     	name: "Arhost",
+      type: ["Ghost", "Steel"],
+      baseStats: {hp: 55, atk: 70, def: 110, spa: 70, spd: 120, spe: 50},
+      abilities: {0: "Battle Armor", H: "Bulletproof"},
+      weightkg: 3.9,
 		prevo:["Helhost"]
   },
-    	paddhiero: {
-      		num: 1007,
-      		name: "Paddhiero",
-      		type: ["Grass", "Fire"],
-      		baseStats: {hp: 120, atk: 110, def: 70, spa: 70, spd: 70, spe:80},
-      		abilities: {0: "Harvest", 1:"Chlorophyll", H:"Justified"},
-      		weightkg: 9.5},
-	raltsl: {
+  paddhiero: {
+      num: 1007,
+     	name: "Paddhiero",
+      type: ["Grass", "Fire"],
+     	baseStats: {hp: 45, atk: 70, def: 55, spa: 50, spd: 50, spe:80},
+      abilities: {0: "Harvest", 1:"Chlorophyll", H:"Justified"},
+      weightkg: 1.1,
+	},
+	paddhiero: {
+      num: 1007,
+     	name: "Paddhiero",
+      type: ["Grass", "Fire"],
+     	baseStats: {hp: 120, atk: 110, def: 70, spa: 70, spd: 70, spe:80},
+      abilities: {0: "Harvest", 1:"Chlorophyll", H:"Justified"},
+      weightkg: 9.5},
+  },
+  raltsl: {
 		num: 280,
-      		name: "Ralts-L",
-      		baseSpecies: "Ralts",
-      		forme: "L",
-      		types: ["Fairy"],
-      		baseStats: {hp: 29, atk: 25, def: 25, spa: 45, spd: 35, spe: 40},
-      		abilities: {0: "Cute Charm", 1: "Trace", H: "Adaptability"},
-      		weightkg: 6.6,
+     	name: "Ralts-L",
+      baseSpecies: "Ralts",
+      forme: "L",
+      types: ["Fairy"],
+      baseStats: {hp: 29, atk: 25, def: 25, spa: 45, spd: 35, spe: 40},
+      abilities: {0: "Cute Charm", 1: "Trace", H: "Adaptability"},
+      weightkg: 6.6,
 		evo:["Kirlia-l"],
   },
-    	kirlial: {
+  kirlial: {
 		num: 281,
-      		name: "Kirlia-L",
-      		baseSpecies: "Kirlia",
-      		forme: "L",
-      		types: ["Fairy"],
-      		baseStats: {hp: 38, atk: 35, def: 35, spa: 65, spd: 55, spe: 50},
-      		abilities: {0: "Cute Charm", 1: "Trace", H: "Adaptability"},
-      		weightkg: 20.2,
+     	name: "Kirlia-L",
+      baseSpecies: "Kirlia",
+      forme: "L",
+      types: ["Fairy"],
+      baseStats: {hp: 38, atk: 35, def: 35, spa: 65, spd: 55, spe: 50},
+      abilities: {0: "Cute Charm", 1: "Trace", H: "Adaptability"},
+      weightkg: 20.2,
 		prevo:["Ralts-l"],
 		evo:["Gardevoir-L"],
   },
-    	gardevoirl: {
+  gardevoirl: {
 		num: 282,
 		name: "Gardevoir-L",
 		baseSpecies: "Gardevoir",
@@ -16059,7 +16068,7 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 80, def: 85, spa: 100, spd: 80, spe: 30},
   		abilities: {0: "Shell Armor", 1: "Magic Guard", H: "Shed Skin"},
   		weightkg: 13.6,
-
+	},
 	hatterenel: {
 		num: 842,
 		name: "Hatterene-L",
@@ -16071,17 +16080,16 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
   		weightkg: 5,
 	},
 	swellowmega: {
-        	num: 277,
-        	species: "Swellow-Mega",
-        	baseSpecies: "Swellow",
-        	forme: "Mega",
-        	formeLetter: "M",
-        	types: ["Normal","Flying"],
-        	baseStats: {hp: 60, atk: 75, def: 105, spa: 85, spd: 105, spe: 125},
-        	abilities: {0: "Gale Wind"},
+      num: 277,
+      species: "Swellow-Mega",
+    	baseSpecies: "Swellow",
+    	forme: "Mega",
+    	formeLetter: "M",
+    	types: ["Normal","Flying"],
+    	baseStats: {hp: 60, atk: 75, def: 105, spa: 85, spd: 105, spe: 125},
+    	abilities: {0: "Gale Wind"},
 		weightkg: 25.8,
-  	 },
-
+  	},
 	chimechomega: {
 		num: 358, 
 		name: "Chimecho-Mega",
@@ -16137,5 +16145,4 @@ export const Pokedex: {[specieid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 150, def: 94, spa: 120, spd: 94, spe: 85},
 		abilities: {0: "Anticipation"},
 	},
-
 };
