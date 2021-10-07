@@ -51,7 +51,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1003,
+		num: -1004,
 		gen: 8,
 		desc: "If held by a Emolga, this item allows it to Mega Evolve in battle.",
 	},
@@ -65,7 +65,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1004,
+		num: -1005,
 		gen: 8,
 		desc: "If held by a Dragonite, this item allows it to Mega Evolve in battle.",
 	},
@@ -79,8 +79,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1005,
+		num: -1006,
 		gen: 8,
 		desc: "If held by a Sirfetch\u2019d, this item allows it to Mega Evolve in battle.",
+	},
+	luxrite: {
+		name: "Luxrite",
+		spritenum: 586,
+		megaStone: "Luxray-Mega",
+		megaEvolves: "Luxray",
+		itemUser: ["Luxray"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1007,
+		gen: 8,
+		desc: "If held by a Luxray, this item allows it to Mega Evolve in battle.",
 	},
 };
