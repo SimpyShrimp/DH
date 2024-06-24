@@ -162,7 +162,7 @@ export class Field {
 		this.terrainData = {id: ''};
 		return true;
 	}
-
+	
 	effectiveTerrain(target?: Pokemon | Side | Battle) {
 		if (this.battle.event && !target) target = this.battle.event.target;
 		return this.battle.runEvent('TryTerrain', target) ? this.terrain : '';

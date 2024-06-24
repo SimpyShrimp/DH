@@ -231,4 +231,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Lab",
 		doublesTier: "Lab",
 	},
+	incineroarmega: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
+	froslassmega: {
+		tier: "Lab",
+		doublesTier: "Lab",
+	},
 };

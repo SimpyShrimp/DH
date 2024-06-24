@@ -4,11 +4,11 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Mega Data Mod',
 		desc: 'Gives data on stats, Ability and types when a Pokémon Mega Evolves or undergoes Ultra Burst.',
 		onBegin() {
-			this.add(`raw|<img src="https://www.smogon.com/forums/attachments/banner_2-png.302358/" height="65" width="381">`);
+			this.add(`raw|<img src="https://raw.githubusercontent.com/scoopapa/DH/master/data/mods/m4av6/sprites/m4a_banner.png" height="65" width="381">`);
 			if (this.format.name === '[Gen 8] M4A Sandbox' || this.format.name === '[Gen 8] M4A VGC Sandbox') {
 				this.add('-message', `Welcome to the Megas for All Sandbox!`);
 				this.add('-message', `This is a custom game format where you can experiment outside of the normal rules.`);
-				this.add('-message', `Thanks to the incredible KeroseneZanchu, you can even alter a Pokémon's type, stats and Mega form with its nickname!`);
+				this.add('-message', `Thanks to the work of KeroseneZanchu, you can even alter a Pokémon's type, stats and Mega form with its nickname!`);
 				this.add('-message', `You can find the details on how this works here:`);
 				this.add('-message', `https://docs.google.com/document/d/1hhF49OIQKot72C30mCzSwxYgb3Ephhm9KCL_nMPrCW0/`);
 			} else {
@@ -20,22 +20,6 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 			for (const pokemon of this.getAllPokemon()) {
 				(pokemon as any).lostItemForDelibird = pokemon.item;
-			}
-		},
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			const silvally = [
-				'Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel',
-				'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy',
-			];
-			if (silvally.includes(set.species)) {
-				if (item === 'rksmegamemory') {
-					if (set.hpType) {
-						set.species = 'Silvally-' + set.hpType;
-					} else {
-						set.species = 'Silvally-' + this.dex.getHiddenPower(set.ivs).type;
-					}
-				}
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -64,15 +48,17 @@ export const Formats: {[k: string]: FormatData} = {
 		onAfterMega(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			const species = this.dex.getSpecies(pokemon.species);
-			const abilities = species.abilities;
+			const abilities = this.dex.getAbility(species.abilities[0]).name;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
 			if (species.types[1]) {
 				const type2 = species.types[1];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="http://play.pokemonshowdown.com/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
 			} else {
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
 			}
+			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+			if (species.creator) this.hint(`${species.name} was submitted by ${species.creator}!`);
 		},
 	},
 	standardm4a: {
@@ -80,15 +66,55 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Standard M4A',
 		desc: 'The universal banlist used by most standard Megas for All formats.',
 		banlist: [
-			'Alakazite', 'Arceus', 'Blastoisinite', 'Blazikenite', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Dracovish',
-			'Dragapult', 'Eternatus', 'Genesect', 'Gengarite', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhanite', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base',
-			'Lucarionite', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tapu Lele', 'Urshifu-Base', 'Xerneas', 'Yveltal',
-			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Zygarde-Complete',  'Calyrex-Ice', 'Calyrex-Shadow', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'AG', 'Uber',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
-			'Butterfrite', 'Dragonitite', 'Rillaboomite', 'Cinderite',
 		],
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.getSpecies(set.species);
+			let item = this.dex.getItem(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (!item.megaStone) throw new Error(`Item ${item.name} has no base form for mega evolution`);
+				tierSpecies = this.dex.getSpecies(item.megaStone);
+			} else if (item.id === 'lycanite' && species.id === 'lycanrocmidnight') {
+				tierSpecies = this.dex.getSpecies('Lycanroc-Midnight-Mega');
+			} else if (item.id === 'lycanite' && species.id === 'lycanrocdusk') {
+				tierSpecies = this.dex.getSpecies('Lycanroc-Dusk-Mega');
+			} else if (item.id === 'gourgeite' && species.id === 'gourgeistsmall') {
+				tierSpecies = this.dex.getSpecies('Gourgeist-Small-Mega');
+			} else if (item.id === 'gourgeite' && species.id === 'gourgeistlarge') {
+				tierSpecies = this.dex.getSpecies('Gourgeist-Large-Mega');
+			} else if (item.id === 'gourgeite' && species.id === 'gourgeistsuper') {
+				tierSpecies = this.dex.getSpecies('Gourgeist-Super-Mega');
+			} else if (item.id === 'reginite' && species.id === 'regice') {
+				tierSpecies = this.dex.getSpecies('Regice-Mega');
+			} else if (item.id === 'reginite' && species.id === 'registeel') {
+				tierSpecies = this.dex.getSpecies('Registeel-Mega');
+			} else if (item.id === 'meowsticite' && species.id === 'meowsticf') {
+				tierSpecies = this.dex.getSpecies('Meowstic-F-Mega');
+			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbucksummer') {
+				tierSpecies = this.dex.getSpecies('Sawsbuck-Summer-Mega');
+			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbuckautumn') {
+				tierSpecies = this.dex.getSpecies('Sawsbuck-Autumn-Mega');
+			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbuckwinter') {
+				tierSpecies = this.dex.getSpecies('Sawsbuck-Winter-Mega');
+			} else if (item.id === 'toxtricitite' && species.id === 'toxtricitylowkey') {
+				tierSpecies = this.dex.getSpecies('Toxtricity-Low-Key-Mega');
+			} else if (item.id === 'redorb' && species.id === 'groudon') {
+				tierSpecies = this.dex.getSpecies('Groudon-Primal');
+			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
+				tierSpecies = this.dex.getSpecies('Kyogre-Primal');
+			}
+			let problem = this.checkSpecies(set, species, tierSpecies, setHas);
+			if (problem) problems.push(problem);
+
+			return problems;
+		},
 	},
 	standardm4amonothreat: {
 		effectType: 'ValidatorRule',
@@ -112,7 +138,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//Item Restrictions
 			'Blastoisinite', 'Damp Rock', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Salamencite', 'Smooth Rock', 'Terrain Extender',
 			//Banned M4A Stones
-			'Butterfrite', 'Cinderite', 'Dragonitite',
+			'Butterfrite', 'Cinderite',
 		],
 	},
 
@@ -176,7 +202,6 @@ export const Formats: {[k: string]: FormatData} = {
 					species = this.dex.getSpecies("Mimikyu-Busted-Mega");
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
-				if (!typeTable.length) return [`Your team must share a type.`];
 			}
 		},
 	},

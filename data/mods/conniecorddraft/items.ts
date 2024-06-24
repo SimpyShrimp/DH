@@ -57,4 +57,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Sceptile, this item allows it to Mega Evolve in battle.",
 	},
+	incinerite: {
+		name: "Incinerite",
+		spritenum: 586,
+		megaStone: "Incineroar-Mega",
+		megaEvolves: "Incineroar",
+		itemUser: ["Incineroar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1005,
+		gen: 8,
+		desc: "If held by an Incineroar, this item allows it to Mega Evolve in battle.",
+	},
+	froslassite: {
+		name: "Froslassite",
+		spritenum: 586,
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1006,
+		gen: 8,
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
 };

@@ -49,6 +49,7 @@ export const Aliases: {[alias: string]: string} = {
 	ccex: "[Gen 8] Crossover Chaos Expanded",
 	ccubers: "[Gen 8] Crossover Chaos V2 + Expanded Ubers",
 	roulette: "[Gen 8] Roulettemons",
+	xrbt: "[Gen 8] Extreme Reboot",
 
 	// mega evos
 	fabio: "Ampharos-Mega",
@@ -879,7 +880,7 @@ export const Aliases: {[alias: string]: string} = {
 	soulstealingsevenstarstrike: "Soul-Stealing 7-Star Strike",
 	splintered: "Splintered Stormshards",
 	stoked: "Stoked Sparksurfer",
-	stormshards: "Splintered Stormshards",
+	// stormshards: "Splintered Stormshards",
 	zbug: "Savage Spin-Out",
 	zclangingscales: "Clangorous Soulblaze",
 	zdark: "Black Hole Eclipse",

@@ -366,288 +366,68 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 	},
 	bugmemory: {
-		onMemory: 'Bug',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Bug",
-		itemUser: ["Silvally-Bug"],
+		inherit: true,
+		gen: 3,
 	},
 	darkmemory: {
-		name: "Dark Memory",
-		onMemory: 'Dark',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Dark",
-		itemUser: ["Silvally-Dark"],
+		inherit: true,
+		gen: 3,
 	},
 	dragonmemory: {
-		name: "Dragon Memory",
-		onMemory: 'Dragon',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Dragon",
-		itemUser: ["Silvally-Dragon"],
+		inherit: true,
+		gen: 3,
 	},
 	electricmemory: {
-		name: "Electric Memory",
-		onMemory: 'Electric',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Electric",
-		itemUser: ["Silvally-Electric"],
+		inherit: true,
+		gen: 3,
 	},
 	fightingmemory: {
-		name: "Fighting Memory",
-		onMemory: 'Fighting',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Fighting",
-		itemUser: ["Silvally-Fighting"],
+		inherit: true,
+		gen: 3,
 	},
 	firememory: {
-		name: "Fire Memory",
-		onMemory: 'Fire',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Fire",
-		itemUser: ["Silvally-Fire"],
+		inherit: true,
+		gen: 3,
 	},
 	flyingmemory: {
-		name: "Flying Memory",
-		onMemory: 'Flying',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Flying",
-		itemUser: ["Silvally-Flying"],
+		inherit: true,
+		gen: 3,
 	},
 	ghostmemory: {
-		name: "Ghost Memory",
-		onMemory: 'Ghost',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Ghost",
-		itemUser: ["Silvally-Ghost"],
+		inherit: true,
+		gen: 3,
 	},
 	grassmemory: {
-		name: "Grass Memory",
-		onMemory: 'Grass',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Grass",
-		itemUser: ["Silvally-Grass"],
+		inherit: true,
+		gen: 3,
 	},
 	groundmemory: {
-		name: "Ground Memory",
-		onMemory: 'Ground',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Ground",
-		itemUser: ["Silvally-Ground"],
+		inherit: true,
+		gen: 3,
 	},
 	icememory: {
-		name: "Ice Memory",
-		onMemory: 'Ice',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Ice",
-		itemUser: ["Silvally-Ice"],
+		inherit: true,
+		gen: 3,
 	},
 	poisonmemory: {
-		name: "Poison Memory",
-		spritenum: 670,
-		onMemory: 'Poison',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Poison",
-		itemUser: ["Silvally-Poison"],
+		inherit: true,
+		gen: 3,
 	},
 	psychicmemory: {
-		name: "Psychic Memory",
-		onMemory: 'Psychic',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Psychic",
-		itemUser: ["Silvally-Psychic"],
+		inherit: true,
+		gen: 3,
 	},
 	rockmemory: {
-		name: "Rock Memory",
-		onMemory: 'Rock',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Rock",
-		itemUser: ["Silvally-Rock"],
+		inherit: true,
+		gen: 3,
 	},
 	steelmemory: {
-		name: "Steel Memory",
-		onMemory: 'Steel',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Steel",
-		itemUser: ["Silvally-Steel"],
+		inherit: true,
+		gen: 3,
 	},
 	watermemory: {
-		name: "Water Memory",
-		onMemory: 'Water',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Water",
-		itemUser: ["Silvally-Water"],
-	},
-	assaultvest: {
-		name: "Assault Vest",
-		spritenum: 581,
-		fling: {
-			basePower: 80,
-		},
-		onModifySpDPriority: 1,
-		onModifySpD(spd) {
-			return this.chainModify(1.5);
-		},
-		onDisableMove(pokemon) {
-			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.move).category === 'Status') {
-					pokemon.disableMove(moveSlot.id);
-				}
-			}
-		},
-		num: 640,
-		gen: 6,
-		isNonstandard: "Past",
-	},
-	choicescarf: {
-		name: "Choice Scarf",
-		spritenum: 69,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
-			}
-			pokemon.removeVolatile('choicelock');
-		},
-		onModifyMove(move, pokemon) {
-			pokemon.addVolatile('choicelock');
-		},
-		onModifySpe(spe, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
-			return this.chainModify(1.5);
-		},
-		isChoice: true,
-		num: 287,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	choicespecs: {
-		name: "Choice Specs",
-		spritenum: 70,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
-			}
-			pokemon.removeVolatile('choicelock');
-		},
-		onModifyMove(move, pokemon) {
-			pokemon.addVolatile('choicelock');
-		},
-		onModifySpAPriority: 1,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
-			return this.chainModify(1.5);
-		},
-		isChoice: true,
-		num: 297,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	eviolite: {
-		name: "Eviolite",
-		spritenum: 130,
-		fling: {
-			basePower: 40,
-		},
-		onModifyDefPriority: 2,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpDPriority: 2,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe) {
-				return this.chainModify(1.5);
-			}
-		},
-		num: 538,
-		gen: 5,
-		isNonstandard: "Past",
+		inherit: true,
+		gen: 3,
 	},
 	expertbelt: {
 		name: "Expert Belt",
@@ -661,101 +441,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		num: 268,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	focussash: {
-		name: "Focus Sash",
-		spritenum: 151,
-		fling: {
-			basePower: 10,
-		},
-		onDamage(damage, target, source, effect) {
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				if (target.useItem()) {
-					return target.hp - 1;
-				}
-			}
-		},
-		num: 275,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	heavydutyboots: {
-		name: "Heavy-Duty Boots",
-		spritenum: 715,
-		fling: {
-			basePower: 80,
-		},
-		num: 1120,
-		gen: 8,
-		isNonstandard: "Past",
-	},
-	lifeorb: {
-		name: "Life Orb",
-		spritenum: 249,
-		fling: {
-			basePower: 30,
-		},
-		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([0x14CC, 0x1000]);
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
-			}
-		},
-		num: 270,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	powerherb: {
-		onChargeMove(pokemon, target, move) {
-			if (pokemon.useItem()) {
-				this.debug('power herb - remove charge turn for ' + move.id);
-				this.attrLastMove('[still]');
-				this.addMove('-anim', pokemon, move.name, target);
-				return false; // skip charge turn
-			}
-		},
-		name: "Power Herb",
-		spritenum: 358,
-		fling: {
-			basePower: 10,
-		},
-		num: 271,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	rockyhelmet: {
-		name: "Rocky Helmet",
-		spritenum: 417,
-		fling: {
-			basePower: 60,
-		},
-		onDamagingHitOrder: 2,
-		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
-				this.damage(source.baseMaxhp / 6, source, target);
-			}
-		},
-		num: 540,
-		gen: 5,
-		isNonstandard: "Past",
-	},
-	expertbelt: {
-		name: "Expert Belt",
-		spritenum: 132,
-		fling: {
-			basePower: 10,
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		num: 268,
-		gen: 4,
+		gen: 3,
 	},
 	thickclub: {
 		name: "Thick Club",
@@ -787,5 +473,123 @@ export const Items: {[k: string]: ModdedItemData} = {
 		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d"],
 		num: 259,
 		gen: 2,
+	},
+	occaberry: {
+		inherit: true,
+		gen: 3,
+	},
+	passhoberry: {
+		inherit: true,
+		gen: 3,
+	},
+	wacanberry: {
+		inherit: true,
+		gen: 3,
+	},
+	rindoberry: {
+		inherit: true,
+		gen: 3,
+	},
+	yacheberry: {
+		inherit: true,
+		gen: 3,
+	},
+	chopleberry: {
+		inherit: true,
+		gen: 3,
+	},
+	kebiaberry: {
+		inherit: true,
+		gen: 3,
+	},
+	shucaberry: {
+		inherit: true,
+		gen: 3,
+	},
+	cobaberry: {
+		inherit: true,
+		gen: 3,
+	},
+	payapaberry: {
+		inherit: true,
+		gen: 3,
+	},
+	tangaberry: {
+		inherit: true,
+		gen: 3,
+	},
+	chartiberry: {
+		inherit: true,
+		gen: 3,
+	},
+	kasibberry: {
+		inherit: true,
+		gen: 3,
+	},
+	habanberry: {
+		inherit: true,
+		gen: 3,
+	},
+	colburberry: {
+		inherit: true,
+		gen: 3,
+	},
+	babiriberry: {
+		inherit: true,
+		gen: 3,
+	},
+	chilanberry: {
+		inherit: true,
+		gen: 3,
+	},
+	custapberry: {
+		inherit: true,
+		gen: 3,
+	},
+	airballoon: {
+		inherit: true,
+		gen: 3,
+	},
+	
+	
+	assaultvest: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	choicescarf: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	choicespecs: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	eviolite: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	focussash: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	heavydutyboots: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	lifeorb: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
+	},
+	rockyhelmet: {
+		inherit: true,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 };

@@ -1208,7 +1208,16 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass'],
 	},
-	
+	{
+		name: "[Gen 8] Optimons v2",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-8-optimons-v2-3rd-slate-creepy.3700473/">OptiMons v2</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TfbiVvD6JHglCDJKCQeDV9OTKYJqDM5rSJY8zh0bsVA/edit#gid=0">Spreadsheet</a>`,
+		],
+
+		mod: 'optimonsv2',
+   	ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+	},
 	{
 		name: "[Gen 8] Perfect Galar",
 		desc: [ "The goal of Perfect Galar is to make a Sword and Shield OU metagame where every single fully evolved Pokemon in the Galar Pokedex has a unique, valuable niche.",
@@ -1472,6 +1481,22 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+		name: "[Gen 3] Hoenn Gaiden",
+		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Hoenn Gaiden on Smogon Forums</a>`,
+		],
+
+		mod: 'gen3hoenngaiden',
+		ruleset: ['Standard', 'Data Mod', 'Baton Pass Mod', 'Freeze Clause Mod', 'Hoenn Gaiden Mod'],
+		banlist: ['Uber', 'Air Balloon'],
+		unbanlist: [
+			//Abilities
+			'Sand Veil',
+		],
+		teambuilderFormat: 'OU',
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
@@ -1646,58 +1671,58 @@ export const Formats: FormatList = [
 		onChangeSet(set) {
 			if (set.species === 'Chomplim-Mega') {
 				set.species = 'Chomplim';
-				set.ability = 'Rough Result';	},	
+				set.ability = 'Rough Result';	}	
 			if (set.species === 'Silvino-Mega') {
 				set.species = 'Silvino';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Bug-Mega') {
 				set.species = 'Silvino-Bug';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Dark-Mega') {
 				set.species = 'Silvino-Dark';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Dragon-Mega') {
 				set.species = 'Silvino-Dragon';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Electric-Mega') {
 				set.species = 'Silvino-Electric';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Fairy-Mega') {
 				set.species = 'Silvino-Fairy';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Fighting-Mega') {
 				set.species = 'Silvino-Fighting';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Fire-Mega') {
 				set.species = 'Silvino-Fire';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Ghost-Mega') {
 				set.species = 'Silvino-Ghost';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}
 			if (set.species === 'Silvino-Flying-Mega') {
 				set.species = 'Silvino-Flying';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Grass-Mega') {
 				set.species = 'Silvino-Grass';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Ground-Mega') {
 				set.species = 'Silvino-Ground';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}
 			if (set.species === 'Silvino-Ice-Mega') {
 				set.species = 'Silvino-Ice';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}	
 			if (set.species === 'Silvino-Poison-Mega') {
 				set.species = 'Silvino-Poison';
-				set.ability = 'Null System';	},
+				set.ability = 'Null System';	}
 			if (set.species === 'Silvino-Psychic-Mega') {
 				set.species = 'Silvino-Psychic';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}
 			if (set.species === 'Silvino-Rock-Mega') {
 				set.species = 'Silvino-Rock';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}
 			if (set.species === 'Silvino-Steel-Mega') {
 				set.species = 'Silvino-Steel';
-				set.ability = 'Null System';	},	
+				set.ability = 'Null System';	}
 	  		if (set.species === 'Silvino-Water-Mega') {
 				set.species = 'Silvino-Water';
 				set.ability = 'Null System';	}	

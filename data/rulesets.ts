@@ -76,7 +76,7 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Standard NatDex',
 		desc: "The standard ruleset for all National Dex tiers",
 		ruleset: [
-			'Obtainable', '+Unobtainable', '+Past', 'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			'Obtainable', '+Unobtainable', '+Past', 'Sketch Gen 8 Moves', 'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 		],
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
@@ -964,6 +964,30 @@ export const Formats: {[k: string]: FormatData} = {
 			return -typeMod;
 		},
 	},
+	// Made for Hoenn Gaiden
+	batonpassmod: {
+		effectType: 'Rule',
+		name: 'Baton Pass Mod',
+		desc: "Positive stat boosts are reset upon using Baton Pass.",
+		onBegin() {
+			this.add('rule', 'Baton Pass Mod: Positive stat boosts are reset upon using Baton Pass');
+		},
+		onHit(source, target, move) {
+			if (source.positiveBoosts() && move.id === 'batonpass') {
+				this.add('-clearpositiveboost', source);
+				this.hint("Baton Pass Mod activated: Stat Boosts cannot be passed");
+			}
+		},
+		onValidateTeam(team) {
+			for (const set of team) {
+				if (set.moves.includes('batonpass')) {
+					return [
+						`${set.name || set.species} must run the modified move 'Baton Pass Gaiden' in place of 'Baton Pass'.`,
+					];
+				}
+			}
+		},
+	},
 	stabmonsmovelegality: {
 		effectType: 'ValidatorRule',
 		name: 'STABmons Move Legality',
@@ -1039,6 +1063,12 @@ export const Formats: {[k: string]: FormatData} = {
 				return [`${set.species} is banned due to NFE Clause.`];
 			}
 		},
+	},
+	'sketchgen8moves': {
+		effectType: 'ValidatorRule',
+		name: 'Sketch Gen 8 Moves',
+		desc: "Allows Pokémon who learn Sketch to learn any Gen 8 move (normally, Sketch is not usable in Gen 8).",
+		// Implemented in sim/team-validator.ts
 	},
 	mimicglitch: {
 		effectType: 'ValidatorRule',
@@ -1283,6 +1313,65 @@ export const Formats: {[k: string]: FormatData} = {
 				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
 			pokemon.switchedIn = true;
+		},
+	},
+	oneboostpasserclause: {
+		effectType: 'ValidatorRule',
+		name: 'One Boost Passer Clause',
+		desc: "Stops teams from having a Pok&eacute;mon with Baton Pass that has multiple ways to boost its stats, and no more than one Baton Passer may be able to boost its stats",
+		onBegin() {
+			this.add('rule', 'One Boost Passer Clause: Limit one Baton Passer that has a way to boost its stats');
+		},
+		onValidateTeam(team) {
+			const boostingEffects = [
+				'acidarmor', 'agility', 'amnesia', 'apicotberry', 'barrier', 'bellydrum', 'bulkup', 'calmmind', 'cosmicpower', 'curse',
+				'defensecurl', 'dragondance', 'ganlonberry', 'growth', 'harden', 'howl', 'irondefense', 'liechiberry', 'meditate',
+				'petayaberry', 'salacberry', 'sharpen', 'speedboost', 'starfberry', 'swordsdance', 'tailglow', 'withdraw',
+			];
+			let passers = 0;
+			for (const set of team) {
+				if (!set.moves.includes('batonpass')) continue;
+				let passableBoosts = 0;
+				const item = this.toID(set.item);
+				const ability = this.toID(set.ability);
+				for (const move of set.moves) {
+					if (boostingEffects.includes(this.toID(move))) passableBoosts++;
+				}
+				if (boostingEffects.includes(item)) passableBoosts++;
+				if (boostingEffects.includes(ability)) passableBoosts++;
+				if (passableBoosts === 1) passers++;
+				if (passableBoosts > 1) {
+					return [
+						`${set.name || set.species} has Baton Pass and multiple ways to boost its stats, which is banned by One Boost Passer Clause.`,
+					];
+				}
+				if (passers > 1) {
+					return [
+						`Multiple Pokemon have Baton Pass and a way to boost their stats, which is banned by One Boost Passer Clause.`,
+					];
+				}
+			}
+		},
+	},
+	camomonsmod: {
+		effectType: 'Rule',
+		name: 'Camomons Mod',
+		desc: `Pok&eacute;mon have their types set to match their first two moves.`,
+		onBegin() {
+			this.add('rule', 'Camomons Mod: Pok\u00e9mon have their types set to match their first two moves.');
+		},
+		onModifySpeciesPriority: 2,
+		onModifySpecies(species, target, source, effect) {
+			if (!target) return; // Chat command
+			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.getMove(move.id).type))];
+			return {...species, types: types};
+		},
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+		},
+		onAfterMega(pokemon) {
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
 		},
 	},
 };

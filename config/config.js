@@ -59,16 +59,14 @@ exports.wsdeflate = {
  */
 exports.ssl = null;
 
-/*
 // example:
-exports.ssl = {
-	port: 443,
-	options: {
-		key: './config/ssl/privkey.pem',
-		cert: './config/ssl/fullchain.pem',
-	},
-};
-*/
+// exports.ssl = {
+	// port: 443,
+	// options: {
+		// key: './config/ssl/privkey.pem',
+		// cert: './config/ssl/fullchain.pem',
+	// },
+// };
 
 /*
 Main's SSL deploy script from Let's Encrypt looks like:
@@ -87,6 +85,7 @@ Main's SSL deploy script from Let's Encrypt looks like:
  * @type {false | string[]}.
  */
 exports.proxyip = false;
+exports.isTrustedProxyIp = ip => ["::1", "127.0.0.1"].includes(ip);
 
 /**
  * Various debug options
@@ -168,7 +167,7 @@ Y929lRybWEiKUr+4Yw2O1W0CAwEAAQ==
  *   Don't change this setting - there aren't any other options right now
  */
 exports.routes = {
-	root: 'pokemonshowdown.com',
+	root: 'dragonheavenserver.herokuapp.com',
 	client: 'play.pokemonshowdown.com',
 	dex: 'dex.pokemonshowdown.com',
 	replays: 'replay.pokemonshowdown.com',
@@ -270,7 +269,7 @@ exports.punishmentautolock = false;
  *   If this is set to `true`, only autoconfirmed users can send links to either chatrooms or other users, except for staff members.
  *   This option can be used if your server has trouble with spammers mass PMing links to users, or trolls sending malicious links.
  */
-exports.restrictLinks = false;
+exports.restrictLinks = true;
 
 /**
  * whitelist - prevent users below a certain group from doing things
@@ -285,7 +284,7 @@ exports.restrictLinks = false;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = false;
+exports.chatmodchat = '+';
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | string}
@@ -394,6 +393,24 @@ exports.autolockdown = true;
  */
 exports.customavatars = {
 	// 'userid': 'customavatar.png'
+	'anaconja': 'cirno.png',
+	'zoomercide': 'cirno.png', // anaconja
+	'whathow': 'cirno.png', // anaconja
+	'cityscapes': 'cirno.png',
+	'squawkerz': 'cirno.png',
+	'lrxc': 'cirno.png',
+	'dex': 'cirno.png',
+	'larp': 'cirno.png', // adem
+	'duom2': 'pikasprite.png',
+	// sice
+	'classclownthele': 'cirno.png',
+	'arbysroastbeef': 'cirno.png',
+	'frowntoad': 'cirno.png',
+	'notime2beromeo': 'cirno.png',
+	// end sice
+	'onyxonix7': 'cirno.png',
+	'piikiki4': 'yoshiblaze.png', //yoshiblaze
+	'piikiki4butagain': 'yoshiblaze.png', //yoshiblaze
 };
 
 /**
@@ -457,55 +474,55 @@ exports.chatlogreader = 'fs';
 /**
  * permissions and groups:
  *   Each entry in `grouplist` is a seperate group. Some of the members are "special"
- *     while the rest is just a normal permission.
+ *	 while the rest is just a normal permission.
  *   The order of the groups determines their ranking.
  *   The special members are as follows:
- *     - symbol: Specifies the symbol of the group (as shown in front of the username)
- *     - id: Specifies an id for the group.
- *     - name: Specifies the human-readable name for the group.
- *     - root: If this is true, the group can do anything.
- *     - inherit: The group uses the group specified's permissions if it cannot
- *                  find the permission in the current group. Never make the graph
- *                  produced using this member have any cycles, or the server won't run.
- *     - jurisdiction: The default jurisdiction for targeted permissions where one isn't
- *                       explictly specified. "Targeted permissions" are permissions
- *                       that might affect another user, such as `ban' or `promote'.
- *                       's' is a special group where it means the user itself only
- *                       and 'u' is another special group where it means all groups
- *                       lower in rank than the current group.
- *     - roomonly: forces the group to be a per-room moderation rank only.
- *     - globalonly: forces the group to be a global rank only.
+ *	 - symbol: Specifies the symbol of the group (as shown in front of the username)
+ *	 - id: Specifies an id for the group.
+ *	 - name: Specifies the human-readable name for the group.
+ *	 - root: If this is true, the group can do anything.
+ *	 - inherit: The group uses the group specified's permissions if it cannot
+ *				  find the permission in the current group. Never make the graph
+ *				  produced using this member have any cycles, or the server won't run.
+ *	 - jurisdiction: The default jurisdiction for targeted permissions where one isn't
+ *					   explictly specified. "Targeted permissions" are permissions
+ *					   that might affect another user, such as `ban' or `promote'.
+ *					   's' is a special group where it means the user itself only
+ *					   and 'u' is another special group where it means all groups
+ *					   lower in rank than the current group.
+ *	 - roomonly: forces the group to be a per-room moderation rank only.
+ *	 - globalonly: forces the group to be a global rank only.
  *   All the possible permissions are as follows:
- *     - console: Developer console (>>).
- *     - lockdown: /lockdown and /endlockdown commands.
- *     - hotpatch: /hotpatch, /crashfixed and /savelearnsets commands.
- *     - ignorelimits: Ignore limits such as chat message length.
- *     - promote: Promoting and demoting. Will only work if the target user's current
- *                  group and target group are both in jurisdiction.
- *     - room<rank>: /roompromote to <rank> (eg. roomvoice)
- *     - makeroom: Create/delete chatrooms, and set modjoin/roomdesc/privacy
- *     - editroom: Editing properties of rooms
- *     - editprivacy: Set modjoin/privacy only for battles
- *     - ban: Banning and unbanning.
- *     - mute: Muting and unmuting.
- *     - lock: locking (ipmute) and unlocking.
- *     - receivemutedpms: Receive PMs from muted users.
- *     - forcerename: /fr command.
- *     - ip: IP checking.
- *     - alts: Alt checking.
- *     - modlog: view the moderator logs.
- *     - broadcast: Broadcast informational commands.
- *     - declare: /declare command.
- *     - announce: /announce command.
- *     - modchat: Set modchat.
- *     - potd: Set PotD.
- *     - forcewin: /forcewin command.
- *     - battlemessage: /a command.
- *     - tournaments: creating tournaments (/tour new, settype etc.)
- *     - gamemoderation: /tour dq, autodq, end etc.
- *     - gamemanagement: enable/disable games, minigames, and tournaments.
- *     - minigame: make minigames (hangman, polls, etc.).
- *     - game: make games.
+ *	 - console: Developer console (>>).
+ *	 - lockdown: /lockdown and /endlockdown commands.
+ *	 - hotpatch: /hotpatch, /crashfixed and /savelearnsets commands.
+ *	 - ignorelimits: Ignore limits such as chat message length.
+ *	 - promote: Promoting and demoting. Will only work if the target user's current
+ *				  group and target group are both in jurisdiction.
+ *	 - room<rank>: /roompromote to <rank> (eg. roomvoice)
+ *	 - makeroom: Create/delete chatrooms, and set modjoin/roomdesc/privacy
+ *	 - editroom: Editing properties of rooms
+ *	 - editprivacy: Set modjoin/privacy only for battles
+ *	 - ban: Banning and unbanning.
+ *	 - mute: Muting and unmuting.
+ *	 - lock: locking (ipmute) and unlocking.
+ *	 - receivemutedpms: Receive PMs from muted users.
+ *	 - forcerename: /fr command.
+ *	 - ip: IP checking.
+ *	 - alts: Alt checking.
+ *	 - modlog: view the moderator logs.
+ *	 - broadcast: Broadcast informational commands.
+ *	 - declare: /declare command.
+ *	 - announce: /announce command.
+ *	 - modchat: Set modchat.
+ *	 - potd: Set PotD.
+ *	 - forcewin: /forcewin command.
+ *	 - battlemessage: /a command.
+ *	 - tournaments: creating tournaments (/tour new, settype etc.)
+ *	 - gamemoderation: /tour dq, autodq, end etc.
+ *	 - gamemanagement: enable/disable games, minigames, and tournaments.
+ *	 - minigame: make minigames (hangman, polls, etc.).
+ *	 - game: make games.
  */
 exports.noipchecks = true;
 
@@ -640,6 +657,7 @@ exports.grouplist = [
 		alts: 'ipself',
 		broadcast: true,
 		showmedia: true,
+		tournaments: true,
 	},
 	{
 		symbol: 'whitelist',

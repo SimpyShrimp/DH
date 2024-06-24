@@ -216,6 +216,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "YB",
 		doublesTier: "DYB",
 	},
+	sompuer: {
+		tier: "YB",
+		doublesTier: "DYB",
+	},
+	thermodo: {
+		tier: "YB",
+		doublesTier: "DYB",
+	},
 	
 // New Megas
 	butterfreemega: {
@@ -333,7 +341,7 @@ alakazammega: {
 	   doublesTier: "DOU",
 },
 gengarmega: {
-		tier: "Uber",
+		tier: "OU",
 	   doublesTier: "DOU",
 },
 lucariomega: {
@@ -1052,5 +1060,8 @@ urshifu: {
 		tier: "OU",
 	   doublesTier: "DOU",
 },
-	
+marshadow: {
+		tier: "OU",
+	   doublesTier: "DOU",
+},
 };

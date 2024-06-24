@@ -249,7 +249,18 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// Edit for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(this.currentMod === 'earthsky'){
+			if(typeof source !== 'string'){
+				if(source.twoType){
+					return this.getImmunity(source.type, target) && this.getImmunity(source.twoType, target);
+				} else {
+					sourceType = source.type;
+				}
+			} else sourceType = source;
+		} else sourceType = typeof source !== 'string' ? source.type : source;
+		// End edit
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		if (Array.isArray(targetTyping)) {
@@ -267,7 +278,18 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// Edit for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(this.currentMod === 'earthsky'){
+			if(typeof source !== 'string'){
+				if(source.twoType){
+					return this.getEffectiveness(source.type, target) + this.getEffectiveness(source.twoType, target);
+				} else {
+					sourceType = source.type;
+				}
+			} else sourceType = source;
+		} else sourceType = typeof source !== 'string' ? source.type : source;
+		// End edit
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		let totalTypeMod = 0;
@@ -587,9 +609,10 @@ export class ModdedDex {
 
 	getFormat(name?: string | Format, isTrusted = false): Format {
 		if (name && typeof name !== 'string') return name;
-
+		
 		name = (name || '').trim();
 		let id = toID(name);
+		
 		if (this.data.Aliases.hasOwnProperty(id)) {
 			name = this.data.Aliases[id];
 			id = toID(name);
@@ -746,6 +769,7 @@ export class ModdedDex {
 		];
 		const tr = this.trunc;
 		const stats = {hp: 31, atk: 31, def: 31, spe: 31, spa: 31, spd: 31};
+
 		if (this.gen <= 2) {
 			// Gen 2 specific Hidden Power check. IVs are still treated 0-31 so we get them 0-15
 			const atkDV = tr(ivs.atk / 2);
